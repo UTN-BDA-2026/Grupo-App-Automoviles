@@ -1,0 +1,78 @@
+ISSUE_TEMPLATE 
+
+name: Feature request
+description: Suggest a new feature or enhancement
+title: "feat: "
+labels:
+  - Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## User Story
+
+  - type: input
+    id: user_story
+    attributes:
+      label: User story
+      description: As a [user role], I want [action] so that [benefit]
+      placeholder: As an admin, I want to export user data so that I can analyze it externally.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Motivation & Context
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation & context
+      description: Why is this feature needed? Link to any relevant designs, RFCs, or docs.
+      placeholder: Provide background on this feature and link any related resources.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: List the testable conditions for this feature. Use `- [ ]` for checkboxes.
+      placeholder: |
+        - [ ] Users can select a date range in the export dialog
+        - [ ] Exported CSV includes headers and respects applied filters
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Implementation Notes (Optional)
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation notes
+      description: "Outline any proposed approach: API endpoints, database changes, UI components."
+      placeholder: Describe your high-level technical approach to implement this feature.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Additional Context (Optional)
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any screenshots, mockups, or links to related issues/docs.
+      placeholder: Provide any extra information to help with implementation.
+    validations:
+      required: false

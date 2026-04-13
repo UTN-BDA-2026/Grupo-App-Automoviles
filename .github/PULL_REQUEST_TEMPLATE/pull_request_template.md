@@ -1,6 +1,14 @@
 ## 📝 Descripción
 **Ticket/Issue Asociado:** # (Número del issue o link)
 
+### 📋 Resumen Ejecutivo
+### 🛠️ Cambios Realizados
+- 
+- 
+- 
+
+### 💡 Contexto / Justificación
+
 ---
 
 ## 🚀 Tipo de Cambio

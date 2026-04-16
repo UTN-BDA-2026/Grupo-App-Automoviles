@@ -1,0 +1,26 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: automoviles_db
+    restart: always
+    env_file: [".env"]
+    networks:
+      - web-app-automoviles
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+      # - ./init-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysqldata:
+    driver: local
+
+networks:
+  web-app-automoviles:
+    external: true

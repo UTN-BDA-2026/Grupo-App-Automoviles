@@ -1,0 +1,25 @@
+services:
+  vector-db:
+    image: chromadb/chroma:1.5.2
+    container_name: chromadb_service_test
+    restart: always
+    environment: [".env.test"]
+    networks:
+      - web-app-automoviles-test
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadata:/chroma/chroma
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/heartbeat || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  chromadata:
+    driver: local
+
+networks:
+  web-app-automoviles-test:
+    external: true

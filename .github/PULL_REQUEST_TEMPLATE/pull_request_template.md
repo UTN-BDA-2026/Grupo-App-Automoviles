@@ -12,11 +12,11 @@
 ---
 
 ## 🚀 Tipo de Cambio
-- [ ] 🐞 Bugfix (corrección de un error)
-- [ ] ✨ Nueva funcionalidad
-- [ ] 🧹 Refactorización (cambios de código sin cambios funcionales)
-- [ ] 📝 Documentación
-- [ ] ⚡️ Mejora de rendimiento
+- [ ] Bugfix (corrección de un error)
+- [ ] Nueva funcionalidad
+- [ ] Refactorización (cambios de código sin cambios funcionales)
+- [ ] Documentación
+- [ ] Mejora de rendimiento
 
 ---
 

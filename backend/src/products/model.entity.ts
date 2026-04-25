@@ -1,6 +1,7 @@
 
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, OneToMany } from "typeorm";
 import { Brand } from "./brand.entity";
+import { Vehicle } from "./vehicle.entity";
 
 export enum MessageRol {
     ASSISTANT = 'assistant',
@@ -24,5 +25,8 @@ export class Model {
 
     @ManyToOne(() => Brand, (brand) => brand.model)
     brand!: Brand
+
+    @OneToMany(() => Vehicle, (vehicle) => vehicle.model)
+    vehicles: Vehicle[];
 
 }

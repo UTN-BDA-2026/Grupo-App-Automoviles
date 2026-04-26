@@ -20,6 +20,6 @@ export class Store {
     updated_at!: Date;
 
     @OneToMany(() => Listing, (listing) => listing.store)
-    listings: Listing[];
+    listings!: Listing[];
 
 }

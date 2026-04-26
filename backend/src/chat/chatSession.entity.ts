@@ -21,9 +21,12 @@ export class ChatSession {
     @UpdateDateColumn({type: 'timestamp', nullable: true})
     updated_at!: Date | null
 
-    @ManyToOne(() => User, (user) => user.sessions)
+    @ManyToOne(() => User, (user) => user.sessions, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+    })
     @JoinColumn({ name: 'user_id' })
-    user: User;
+    user!: User;
 
     @OneToMany(() => Message, (message) => message.session)
     message!: Message[]

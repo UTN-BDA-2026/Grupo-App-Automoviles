@@ -24,27 +24,27 @@ export class Vehicle {
     model_id!: string;
 
     @Column({ type: 'int', nullable: true })
-    year: number;
+    year!: number;
 
     @Column({
         type: 'enum',
         enum: FuelType,
         nullable: true,
     })
-    fuel_type: FuelType; 
+    fuel_type!: FuelType; 
 
     @Column({
         type: 'enum',
         enum: TransmissionType,
         nullable: true,
     })
-    transmission: TransmissionType; 
+    transmission!: TransmissionType; 
 
     @Column({ type: 'varchar', length: 255, nullable: true })
-    engine_specs: string;
+    engine_specs!: string;
 
     @Column({ type: 'json', nullable: true })
-    raw_specs: Record<string, any>;
+    raw_specs!: Record<string, any>;
 
     @CreateDateColumn({ type: 'timestamp' })
     created_at!: Date;
@@ -52,11 +52,14 @@ export class Vehicle {
     @UpdateDateColumn({ type: 'timestamp' })
     updated_at!: Date;
 
-    @ManyToOne(() => Model, (model) => model.vehicles, { onDelete: 'RESTRICT' })
+    @ManyToOne(() => Model, (model) => model.vehicles, { 
+        onDelete: 'RESTRICT',
+        onUpdate: 'CASCADE'
+    })
     @JoinColumn({ name: 'model_id' })
-    model: Model;
+    model!: Model;
 
     @OneToMany(() => Listing, (listing) => listing.vehicle)
-    listings: Listing[];
+    listings!: Listing[];
 
 }

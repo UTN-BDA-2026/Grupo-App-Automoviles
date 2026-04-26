@@ -24,7 +24,7 @@ export class Listing {
     currency!: string;
 
     @Column({ type: 'int', nullable: true })
-    mileage: number;
+    mileage!: number;
 
     @Column({ type: 'text' })
     external_url!: string;
@@ -38,12 +38,15 @@ export class Listing {
     @Column({ type: 'timestamp' })
     last_scraped!: Date;
 
-    @ManyToOne(() => Vehicle, (vehicle) => vehicle.listings, { onDelete: 'CASCADE' })
+    @ManyToOne(() => Vehicle, (vehicle) => vehicle.listings, { 
+        onDelete: 'RESTRICT',
+        onUpdate: 'CASCADE'
+    })
     @JoinColumn({ name: 'vehicle_id' })
-    vehicle: Vehicle;
+    vehicle!: Vehicle;
 
     @ManyToOne(() => Store, (store) => store.listings)
     @JoinColumn({ name: 'store_id' })
-    store: Store;
+    store!: Store;
 
 }

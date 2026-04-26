@@ -1,5 +1,5 @@
 
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
 import { ChatSession } from "./chatSession.entity";
 
 export enum MessageRol {
@@ -25,7 +25,11 @@ export class Message {
     @CreateDateColumn({type: 'timestamp'})
     created_at!: Date
 
-    @ManyToOne(() => ChatSession, (session) => session.message)
+    @ManyToOne(() => ChatSession, (session) => session.message, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+    })
+    @JoinColumn({ name: 'session_id' })
     session!: ChatSession
 
 }

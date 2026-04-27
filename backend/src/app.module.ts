@@ -9,6 +9,7 @@ import { UsersModule } from './users/users.module';
 import { ChatModule } from './chat/chat.module';
 import { ScraperModule } from './scraper/scraper.module';
 import { dataSourceOptions } from './database/typeorm.config';
+import { VectorStoreModule } from './vector-store/vector-store.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { dataSourceOptions } from './database/typeorm.config';
     ProductsModule,
     UsersModule,
     ChatModule,
-    ScraperModule
+    ScraperModule,
+    VectorStoreModule
   ],
   controllers: [AppController],
   providers: [AppService],
